@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 502241cb3cdbdbf47816d65c14484253
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Animations/Stickman/Running.anim
+  uploadId: 585719

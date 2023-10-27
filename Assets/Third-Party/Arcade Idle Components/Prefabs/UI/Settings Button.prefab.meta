@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 760b1e29db7d582478984b10039f4656
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/UI/Settings Button.prefab
+  uploadId: 585719

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 179fa29959ea0b843a766ce4fe002687
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Animations/UI/Button.controller
+  uploadId: 585719

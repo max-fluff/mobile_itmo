@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b24eb2abcc86d1647be4337ef2d6a370
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/UI/Slider.prefab
+  uploadId: 585719

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cd55ca69ae54cfd4fb8de36a2c50c583
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72138
+  packageName: Lean GUI
+  packageVersion: 2.0.2
+  assetPath: Assets/Plugins/Lean/Transition/Editor/Scripts/LeanTransition.Editor.asmdef
+  uploadId: 619374

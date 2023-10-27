@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6bd4e1842f8ebb44fbb681d35dced3dd
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/Cameras/Player Camera.prefab
+  uploadId: 585719

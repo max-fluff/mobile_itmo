@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d73e1334853ef5d4c9576265abf163dd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Materials/Backpack.mat
+  uploadId: 585719

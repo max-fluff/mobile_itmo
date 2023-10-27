@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 70267be151ab8134894a195db0d4accc
+timeCreated: 1475403849
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72138
+  packageName: Lean GUI
+  packageVersion: 2.0.2
+  assetPath: Assets/Plugins/Lean/GUI/Scripts/LeanOrientation.cs
+  uploadId: 619374

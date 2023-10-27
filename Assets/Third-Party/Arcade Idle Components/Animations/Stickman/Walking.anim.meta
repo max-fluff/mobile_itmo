@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b66a9fdf4690ef64eaa50b7799603047
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Animations/Stickman/Walking.anim
+  uploadId: 585719

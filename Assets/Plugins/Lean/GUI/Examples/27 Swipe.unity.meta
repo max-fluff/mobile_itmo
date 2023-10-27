@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ae26dc0fb9038d94b92d3d9a3063b845
+timeCreated: 1480498784
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72138
+  packageName: Lean GUI
+  packageVersion: 2.0.2
+  assetPath: Assets/Plugins/Lean/GUI/Examples/27 Swipe.unity
+  uploadId: 619374

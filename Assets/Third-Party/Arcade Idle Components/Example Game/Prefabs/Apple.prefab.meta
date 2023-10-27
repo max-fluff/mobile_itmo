@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c6eb7be4a37c747488f0a2b063d2b978
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Example Game/Prefabs/Apple.prefab
+  uploadId: 585719

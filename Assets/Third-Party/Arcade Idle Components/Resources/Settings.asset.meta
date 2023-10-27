@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 74cd82b3f5c22a34585069294b990be5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Resources/Settings.asset
+  uploadId: 585719

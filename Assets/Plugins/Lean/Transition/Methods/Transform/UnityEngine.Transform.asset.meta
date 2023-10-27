@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e8796c697f25164479f9bf046254723a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72138
+  packageName: Lean GUI
+  packageVersion: 2.0.2
+  assetPath: Assets/Plugins/Lean/Transition/Methods/Transform/UnityEngine.Transform.asset
+  uploadId: 619374

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f1659e14267229947a8c1677f0345f2b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/Placements/Placement with Text.prefab
+  uploadId: 585719

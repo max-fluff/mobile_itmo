@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e5730ad8848a38f4094fc44f897d69a6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/UI/Panels/Shop Panel.prefab
+  uploadId: 585719

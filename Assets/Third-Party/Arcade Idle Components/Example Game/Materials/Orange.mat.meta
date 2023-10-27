@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e0933c8b62d5d98419bca3bb6cde13a7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Example Game/Materials/Orange.mat
+  uploadId: 585719

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b12ef8f59ca174440b32d71abb616841
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Example Game/Materials/Rock.mat
+  uploadId: 585719

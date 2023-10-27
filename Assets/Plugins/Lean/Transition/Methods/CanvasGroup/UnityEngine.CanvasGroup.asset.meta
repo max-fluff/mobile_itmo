@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6e993f2bc6ff9184db8b649642e4632e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72138
+  packageName: Lean GUI
+  packageVersion: 2.0.2
+  assetPath: Assets/Plugins/Lean/Transition/Methods/CanvasGroup/UnityEngine.CanvasGroup.asset
+  uploadId: 619374

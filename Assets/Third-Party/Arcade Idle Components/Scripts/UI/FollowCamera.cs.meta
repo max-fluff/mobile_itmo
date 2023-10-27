@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 517303ac106f7694da7c76b1c3af7958
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Scripts/UI/FollowCamera.cs
+  uploadId: 585719

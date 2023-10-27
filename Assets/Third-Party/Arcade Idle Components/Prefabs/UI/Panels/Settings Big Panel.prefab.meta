@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 19953dd569fcb594e927bfb72670e1a9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/UI/Panels/Settings Big Panel.prefab
+  uploadId: 585719

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 86187a2460c25c949ad82d4abd7e5611
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/UI/Canvas with Joystick.prefab
+  uploadId: 585719

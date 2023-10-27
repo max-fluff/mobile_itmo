@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cd64a35fb6fcdca4aa198349e764c526
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72138
+  packageName: Lean GUI
+  packageVersion: 2.0.2
+  assetPath: Assets/Plugins/Lean/Transition/Editor/Templates/Vector3.asset
+  uploadId: 619374

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ed6008d19329e0d47a2dabef1ef1500b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Scripts/Components/PlayerMovement.cs
+  uploadId: 585719

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 87e1fcb9c80a0524f835c9536bcbcad0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Animations/UI/Back Rotating.anim
+  uploadId: 585719

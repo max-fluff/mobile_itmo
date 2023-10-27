@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3360c1abb7f7b7342a0d005ead7b142e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/UI/Item with Progress Bar.prefab
+  uploadId: 585719

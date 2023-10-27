@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 04c7c11ed89fac54b9b26a87353ec89f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Preview Scenes/Scripts/Debuger.cs
+  uploadId: 585719

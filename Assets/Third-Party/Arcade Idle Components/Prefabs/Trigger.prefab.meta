@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 909ba12bd6cda23458a0d2d3dbd231bf
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/Trigger.prefab
+  uploadId: 585719

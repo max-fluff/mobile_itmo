@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 97a82d008612ed84f99f18f19c7a2e92
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/UI/Progress Bars/Progress Bar
+    Circle.prefab
+  uploadId: 585719

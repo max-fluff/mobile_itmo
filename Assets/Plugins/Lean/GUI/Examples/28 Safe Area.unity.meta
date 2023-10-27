@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f8c5427353198a5459db45a050df9d0d
+timeCreated: 1480498784
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72138
+  packageName: Lean GUI
+  packageVersion: 2.0.2
+  assetPath: Assets/Plugins/Lean/GUI/Examples/28 Safe Area.unity
+  uploadId: 619374

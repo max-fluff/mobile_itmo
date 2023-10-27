@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e87c644439c386d43a2a0b9955b80fdd
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Prefabs/Player.prefab
+  uploadId: 585719

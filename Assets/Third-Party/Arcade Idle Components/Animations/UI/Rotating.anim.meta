@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6209587d955e40948b360acdf62bed07
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Animations/UI/Rotating.anim
+  uploadId: 585719

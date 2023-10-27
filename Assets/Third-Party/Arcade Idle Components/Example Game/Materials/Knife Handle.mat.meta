@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eb4c9303c3994b243a45a3ef1de342f8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Example Game/Materials/Knife Handle.mat
+  uploadId: 585719

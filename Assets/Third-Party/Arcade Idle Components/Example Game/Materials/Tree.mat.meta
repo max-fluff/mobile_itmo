@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 56a1a42c637be934e88cd8f1484330bc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248852
+  packageName: Arcade Idle Components
+  packageVersion: 1.1
+  assetPath: Assets/Arcade Idle Components/Example Game/Materials/Tree.mat
+  uploadId: 585719
