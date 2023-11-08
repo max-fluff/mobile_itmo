@@ -1,16 +1,8 @@
 fileFormatVersion: 2
-guid: c37be6ad65a89fb48889627465fcdf16
-timeCreated: 1552650262
-licenseType: Store
+guid: d25321231842ec04baa372bfc827ae3f
 NativeFormatImporter:
+  externalObjects: {}
   mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 72138
-  packageName: Lean GUI
-  packageVersion: 2.0.2
-  assetPath: Assets/Plugins/Lean/Common/Examples/Materials/Yellow.mat
-  uploadId: 619374
