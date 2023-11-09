@@ -1,5 +1,6 @@
 ﻿using Lean.Gui;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -64,7 +65,7 @@ namespace Source
         {
             SetupLocalPlayerCustomProperties();
 
-            var roomName = Random.Range(0, 9999_9999).ToString("00000000");
+            var roomName = Random.Range(0, 99999).ToString("00000");
 
             PhotonNetwork.CreateRoom(roomName);
         }
