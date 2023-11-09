@@ -88,6 +88,7 @@ namespace Source
 
         public override void OnJoinedRoom()
         {
+            PhotonNetwork.IsMessageQueueRunning = false;
             SceneManager.LoadSceneAsync("LevelScene");
         }
 

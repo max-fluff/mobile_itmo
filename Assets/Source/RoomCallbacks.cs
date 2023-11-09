@@ -1,4 +1,6 @@
-﻿using ExitGames.Client.Photon;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -14,21 +16,29 @@ namespace Source
 
         [SerializeField] public TextMeshProUGUI roomNumber;
 
+        private readonly Dictionary<Player, GameObject> _players = new();
+
         private void Awake()
         {
+            PhotonNetwork.IsMessageQueueRunning = true;
+
             PhotonNetwork.EnableCloseConnection = true;
             roomNumber.SetText(PhotonNetwork.CurrentRoom.Name);
 
-            RaiseInstantiationEvent();
-
             var skinId = PlayerCustomPropertiesUtility.GetSkinId(PhotonNetwork.LocalPlayer);
             localPlayer.GetComponent<PlayerSkinController>().SetSkin(skinId);
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                localPlayer.SetActive(true);
+                _players.Add(PhotonNetwork.LocalPlayer, localPlayer);
+            }
+            else
+                RaiseDataRequestEvent();
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
-            if (PhotonNetwork.IsMasterClient)
-                PhotonNetwork.CurrentRoom.IsVisible = false;
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -54,20 +64,25 @@ namespace Source
             playerGO.GetComponent<PlayerSkinController>().SetSkin(skinId);
             playerGO.GetComponent<PhotonView>().ViewID = viewId;
 
+            _players.Add(player, playerGO);
+
             playerGO.GetComponent<CharacterControls>().enabled = false;
+
+            playerGO.SetActive(true);
         }
 
-        private void RaiseInstantiationEvent()
+        private void RaiseInstantiationEvent(Player player, Player targetPlayer)
         {
             var content = new object[]
             {
-                localPlayer.GetComponent<PhotonView>().ViewID
+                player.ActorNumber,
+                _players[player].GetComponent<PhotonView>().ViewID
             };
 
             var raiseEventOptions = new RaiseEventOptions
             {
-                Receivers = ReceiverGroup.Others,
-                CachingOption = EventCaching.AddToRoomCache
+                CachingOption = EventCaching.DoNotCache,
+                TargetActors = new[] { targetPlayer.ActorNumber }
             };
 
             var sendOptions = new SendOptions
@@ -79,14 +94,87 @@ namespace Source
                 sendOptions);
         }
 
+        private void RaiseInstantiationEvent()
+        {
+            var content = new object[]
+            {
+                PhotonNetwork.LocalPlayer.ActorNumber,
+                localPlayer.GetComponent<PhotonView>().ViewID
+            };
+
+            var raiseEventOptions = new RaiseEventOptions
+            {
+                CachingOption = EventCaching.DoNotCache,
+                Receivers = ReceiverGroup.Others
+            };
+
+            var sendOptions = new SendOptions
+            {
+                Reliability = true
+            };
+
+            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
+                sendOptions);
+        }
+
+        private void RaiseDataRequestEvent()
+        {
+            var raiseEventOptions = new RaiseEventOptions
+            {
+                CachingOption = EventCaching.DoNotCache,
+                Receivers = ReceiverGroup.MasterClient
+            };
+
+            var sendOptions = new SendOptions
+            {
+                Reliability = true
+            };
+
+            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.RequestInitData, null, raiseEventOptions,
+                sendOptions);
+        }
+
         public void OnEvent(EventData photonEvent)
         {
-            var data = (object[])photonEvent.CustomData;
-
-            if (photonEvent.Code == (byte)PhotonCustomEvents.InstantiatePlayer)
+            switch (photonEvent.Code)
             {
-                SpawnPlayer(PhotonNetwork.PlayerList[photonEvent.Sender], (int)data[0]);
+                case (byte)PhotonCustomEvents.InstantiatePlayer:
+                    var data = (object[])photonEvent.CustomData;
+                    SpawnPlayer(GetPlayerByActorNumber((int)data[0]), (int)data[1]);
+                    break;
+                case (byte)PhotonCustomEvents.InstantiatingDone:
+                    PhotonNetwork.AllocateViewID(localPlayer.GetComponent<PhotonView>());
+                    localPlayer.SetActive(true);
+                    RaiseInstantiationEvent();
+                    break;
+                case (byte)PhotonCustomEvents.RequestInitData:
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        PhotonNetwork.CurrentRoom.IsVisible = false;
+
+                        foreach (var player in _players)
+                            RaiseInstantiationEvent(player.Key, GetPlayerByActorNumber(photonEvent.Sender));
+
+                        var raiseEventOptions = new RaiseEventOptions
+                        {
+                            CachingOption = EventCaching.DoNotCache,
+                            TargetActors = new[] { photonEvent.Sender }
+                        };
+
+                        var sendOptions = new SendOptions
+                        {
+                            Reliability = true
+                        };
+
+                        PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatingDone, null, raiseEventOptions,
+                            sendOptions);
+                    }
+
+                    break;
             }
         }
+
+        private Player GetPlayerByActorNumber(int actorNumber) =>
+            PhotonNetwork.PlayerList.First(p => p.ActorNumber == actorNumber);
     }
 }

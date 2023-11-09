@@ -2,6 +2,8 @@
 {
     public enum PhotonCustomEvents
     {
-        InstantiatePlayer
+        InstantiatePlayer,
+        InstantiatingDone,
+        RequestInitData,
     }
 }
