@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ExitGames.Client.Photon;
+using Lean.Gui;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -15,6 +16,10 @@ namespace Source
         [SerializeField] public GameObject localPlayer;
 
         [SerializeField] public TextMeshProUGUI roomNumber;
+
+        [SerializeField] public LeanWindow waitingWindow;
+
+        [SerializeField] public LeanButton quitButton;
 
         private readonly Dictionary<Player, GameObject> _players = new();
 
@@ -35,10 +40,15 @@ namespace Source
             }
             else
                 RaiseDataRequestEvent();
+
+            quitButton.OnClick.AddListener(OnQuitClicked);
         }
+
+        private void OnQuitClicked() => PhotonNetwork.LeaveRoom();
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
+            waitingWindow.TurnOff();
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -82,7 +92,7 @@ namespace Source
             var raiseEventOptions = new RaiseEventOptions
             {
                 CachingOption = EventCaching.DoNotCache,
-                TargetActors = new[] { targetPlayer.ActorNumber }
+                TargetActors = new[] {targetPlayer.ActorNumber}
             };
 
             var sendOptions = new SendOptions
@@ -90,7 +100,7 @@ namespace Source
                 Reliability = true
             };
 
-            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
+            PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
                 sendOptions);
         }
 
@@ -113,7 +123,7 @@ namespace Source
                 Reliability = true
             };
 
-            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
+            PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
                 sendOptions);
         }
 
@@ -130,7 +140,7 @@ namespace Source
                 Reliability = true
             };
 
-            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.RequestInitData, null, raiseEventOptions,
+            PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.RequestInitData, null, raiseEventOptions,
                 sendOptions);
         }
 
@@ -138,16 +148,17 @@ namespace Source
         {
             switch (photonEvent.Code)
             {
-                case (byte)PhotonCustomEvents.InstantiatePlayer:
-                    var data = (object[])photonEvent.CustomData;
-                    SpawnPlayer(GetPlayerByActorNumber((int)data[0]), (int)data[1]);
+                case (byte) PhotonCustomEvents.InstantiatePlayer:
+                    var data = (object[]) photonEvent.CustomData;
+                    SpawnPlayer(GetPlayerByActorNumber((int) data[0]), (int) data[1]);
                     break;
-                case (byte)PhotonCustomEvents.InstantiatingDone:
+                case (byte) PhotonCustomEvents.InstantiatingDone:
                     PhotonNetwork.AllocateViewID(localPlayer.GetComponent<PhotonView>());
                     localPlayer.SetActive(true);
                     RaiseInstantiationEvent();
+                    waitingWindow.TurnOff();
                     break;
-                case (byte)PhotonCustomEvents.RequestInitData:
+                case (byte) PhotonCustomEvents.RequestInitData:
                     if (PhotonNetwork.IsMasterClient)
                     {
                         PhotonNetwork.CurrentRoom.IsVisible = false;
@@ -158,7 +169,7 @@ namespace Source
                         var raiseEventOptions = new RaiseEventOptions
                         {
                             CachingOption = EventCaching.DoNotCache,
-                            TargetActors = new[] { photonEvent.Sender }
+                            TargetActors = new[] {photonEvent.Sender}
                         };
 
                         var sendOptions = new SendOptions
@@ -166,7 +177,7 @@ namespace Source
                             Reliability = true
                         };
 
-                        PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatingDone, null, raiseEventOptions,
+                        PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.InstantiatingDone, null, raiseEventOptions,
                             sendOptions);
                     }
 

@@ -23,6 +23,10 @@ namespace Source
         [SerializeField] private Renderer playerRenderer;
         [SerializeField] private PlayerSkins playerSkins;
 
+        [SerializeField] private LeanWindow loadingWindow;
+
+        [SerializeField] private TextMeshProUGUI errText;
+
         private int _skinNumber;
 
         private void Start()
@@ -35,6 +39,12 @@ namespace Source
 
             nextSkin.OnClick.AddListener(NextSkin);
             prevSkin.OnClick.AddListener(PreviousSkin);
+
+            playerName.SetTextWithoutNotify(PlayerPrefs.GetString("name", "Player"));
+
+            playerName.onEndEdit.AddListener(SaveNameToPlayerPrefs);
+
+            _skinNumber = PlayerPrefs.GetInt(nameof(_skinNumber), 0);
 
             ApplySkin();
         }
@@ -53,8 +63,11 @@ namespace Source
 
         private void ApplySkin()
         {
+            PlayerPrefs.SetInt(nameof(_skinNumber), _skinNumber);
             playerRenderer.material = playerSkins.Skins[_skinNumber];
         }
+
+        private void SaveNameToPlayerPrefs(string name) => PlayerPrefs.SetString("name", name);
 
         private static void ConnectToMaster()
         {
@@ -63,6 +76,8 @@ namespace Source
 
         private void CreateRoom()
         {
+            ClearErrMessage();
+
             SetupLocalPlayerCustomProperties();
 
             var roomName = Random.Range(0, 99999).ToString("00000");
@@ -72,6 +87,8 @@ namespace Source
 
         public void JoinRandomRoom()
         {
+            ClearErrMessage();
+
             SetupLocalPlayerCustomProperties();
 
             PhotonNetwork.JoinRandomRoom();
@@ -81,10 +98,18 @@ namespace Source
 
         private void JoinRoom(string roomName)
         {
+            ClearErrMessage();
+
             SetupLocalPlayerCustomProperties();
 
-            PhotonNetwork.JoinRoom(roomName.Replace("-", string.Empty));
+            var roomNumberFormatted = roomName.Replace("-", string.Empty);
+            if (string.IsNullOrWhiteSpace(roomNumberFormatted))
+                errText.SetText("Room number is empty");
+            else
+                PhotonNetwork.JoinRoom(roomNumberFormatted);
         }
+
+        private void ClearErrMessage() => errText.SetText(string.Empty);
 
         public override void OnJoinedRoom()
         {
@@ -102,14 +127,30 @@ namespace Source
 
         public override void OnCreateRoomFailed(short returnCode, string message)
         {
+            errText.SetText("Cannot create room");
         }
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
+            errText.SetText("There are no rooms to connect");
         }
 
         public override void OnJoinRoomFailed(short returnCode, string message)
         {
+            errText.SetText("Cannot join room \n Room might be closed");
+        }
+
+        public override void OnConnectedToMaster()
+        {
+            ClearErrMessage();
+            loadingWindow.TurnOff();
+        }
+
+        public override void OnDisconnected(DisconnectCause cause)
+        {
+            errText.SetText($"Disconnected\n {cause.ToString()}");
+            loadingWindow.TurnOn();
+            ConnectToMaster();
         }
     }
 }
