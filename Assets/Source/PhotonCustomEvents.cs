@@ -5,5 +5,6 @@
         InstantiatePlayer,
         InstantiatingDone,
         RequestInitData,
+        PlayerWon
     }
 }

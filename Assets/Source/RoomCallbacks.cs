@@ -18,6 +18,8 @@ namespace Source
         [SerializeField] public TextMeshProUGUI roomNumber;
 
         [SerializeField] public LeanWindow waitingWindow;
+        [SerializeField] public LeanWindow winWindow;
+        [SerializeField] public LeanWindow lostWindow;
 
         [SerializeField] public LeanButton quitButton;
 
@@ -74,6 +76,8 @@ namespace Source
             playerGO.GetComponent<PlayerSkinController>().SetSkin(skinId);
             playerGO.GetComponent<PhotonView>().ViewID = viewId;
 
+            playerGO.GetComponentInChildren<PlayerName>().SetName(player.NickName);
+
             _players.Add(player, playerGO);
 
             playerGO.GetComponent<CharacterControls>().enabled = false;
@@ -92,7 +96,7 @@ namespace Source
             var raiseEventOptions = new RaiseEventOptions
             {
                 CachingOption = EventCaching.DoNotCache,
-                TargetActors = new[] {targetPlayer.ActorNumber}
+                TargetActors = new[] { targetPlayer.ActorNumber }
             };
 
             var sendOptions = new SendOptions
@@ -100,7 +104,7 @@ namespace Source
                 Reliability = true
             };
 
-            PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
+            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
                 sendOptions);
         }
 
@@ -123,7 +127,7 @@ namespace Source
                 Reliability = true
             };
 
-            PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
+            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatePlayer, content, raiseEventOptions,
                 sendOptions);
         }
 
@@ -140,7 +144,30 @@ namespace Source
                 Reliability = true
             };
 
-            PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.RequestInitData, null, raiseEventOptions,
+            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.RequestInitData, null, raiseEventOptions,
+                sendOptions);
+        }
+
+        public void Win()
+        {
+            winWindow.TurnOn();
+
+            var raiseEventOptions = new RaiseEventOptions
+            {
+                CachingOption = EventCaching.DoNotCache,
+                Receivers = ReceiverGroup.Others
+            };
+
+            var sendOptions = new SendOptions
+            {
+                Reliability = true
+            };
+
+            localPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            localPlayer.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            localPlayer.GetComponent<CharacterControls>().enabled = false;
+
+            PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.PlayerWon, null, raiseEventOptions,
                 sendOptions);
         }
 
@@ -148,20 +175,21 @@ namespace Source
         {
             switch (photonEvent.Code)
             {
-                case (byte) PhotonCustomEvents.InstantiatePlayer:
-                    var data = (object[]) photonEvent.CustomData;
-                    SpawnPlayer(GetPlayerByActorNumber((int) data[0]), (int) data[1]);
+                case (byte)PhotonCustomEvents.InstantiatePlayer:
+                    var data = (object[])photonEvent.CustomData;
+                    SpawnPlayer(GetPlayerByActorNumber((int)data[0]), (int)data[1]);
                     break;
-                case (byte) PhotonCustomEvents.InstantiatingDone:
+                case (byte)PhotonCustomEvents.InstantiatingDone:
                     PhotonNetwork.AllocateViewID(localPlayer.GetComponent<PhotonView>());
                     localPlayer.SetActive(true);
                     RaiseInstantiationEvent();
                     waitingWindow.TurnOff();
                     break;
-                case (byte) PhotonCustomEvents.RequestInitData:
+                case (byte)PhotonCustomEvents.RequestInitData:
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        PhotonNetwork.CurrentRoom.IsVisible = false;
+                        if (PhotonNetwork.PlayerList.Length > 7)
+                            PhotonNetwork.CurrentRoom.IsVisible = false;
 
                         foreach (var player in _players)
                             RaiseInstantiationEvent(player.Key, GetPlayerByActorNumber(photonEvent.Sender));
@@ -169,7 +197,7 @@ namespace Source
                         var raiseEventOptions = new RaiseEventOptions
                         {
                             CachingOption = EventCaching.DoNotCache,
-                            TargetActors = new[] {photonEvent.Sender}
+                            TargetActors = new[] { photonEvent.Sender }
                         };
 
                         var sendOptions = new SendOptions
@@ -177,10 +205,18 @@ namespace Source
                             Reliability = true
                         };
 
-                        PhotonNetwork.RaiseEvent((byte) PhotonCustomEvents.InstantiatingDone, null, raiseEventOptions,
+                        PhotonNetwork.RaiseEvent((byte)PhotonCustomEvents.InstantiatingDone, null, raiseEventOptions,
                             sendOptions);
                     }
 
+                    break;
+
+                case (byte)PhotonCustomEvents.PlayerWon:
+
+                    lostWindow.TurnOn();
+                    localPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    localPlayer.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                    localPlayer.GetComponent<CharacterControls>().enabled = false;
                     break;
             }
         }
