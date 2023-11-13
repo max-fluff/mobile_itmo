@@ -80,6 +80,9 @@ namespace Source
 
             SetupLocalPlayerCustomProperties();
 
+            var roomOptions = new RoomOptions()
+                { PlayerTtl = 10000, MaxPlayers = 8 };
+
             var roomName = Random.Range(0, 99999).ToString("00000");
 
             PhotonNetwork.CreateRoom(roomName);

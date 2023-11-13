@@ -58,11 +58,6 @@ namespace Source
             PhotonNetwork.LeaveRoom();
         }
 
-        public override void OnMasterClientSwitched(Player newMasterClient)
-        {
-            PhotonNetwork.LeaveRoom();
-        }
-
         public override void OnLeftRoom()
         {
             SceneManager.LoadSceneAsync("MenuScene");
@@ -154,7 +149,7 @@ namespace Source
 
             var raiseEventOptions = new RaiseEventOptions
             {
-                CachingOption = EventCaching.DoNotCache,
+                CachingOption = EventCaching.AddToRoomCache,
                 Receivers = ReceiverGroup.Others
             };
 

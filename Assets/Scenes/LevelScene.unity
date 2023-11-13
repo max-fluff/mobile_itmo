@@ -826,8 +826,8 @@ MonoBehaviour:
   localPlayer: {fileID: 346471308199283889}
   roomNumber: {fileID: 869429230}
   waitingWindow: {fileID: 931650779}
-  winWindow: {fileID: 0}
-  lostWindow: {fileID: 0}
+  winWindow: {fileID: 1268785085}
+  lostWindow: {fileID: 1487658502}
   quitButton: {fileID: 1568029615}
 --- !u!1 &256599086
 GameObject:
