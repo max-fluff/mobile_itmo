@@ -7,7 +7,6 @@ namespace Source
     {
         public const string SkinId = nameof(SkinId);
 
-
         public static int GetSkinId(Player player)
         {
             return (int)player.CustomProperties[SkinId];

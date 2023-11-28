@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ExitGames.Client.Photon;
 using Lean.Gui;
@@ -7,6 +8,7 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VirtualConferences.CommonPlatform;
 
 namespace Source
 {
@@ -60,6 +62,7 @@ namespace Source
 
         public override void OnLeftRoom()
         {
+            AnalyticsEventSender.LeaveRoom(DateTime.Now, PhotonNetwork.CurrentRoom?.Name);
             SceneManager.LoadSceneAsync("MenuScene");
         }
 

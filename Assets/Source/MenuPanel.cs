@@ -1,9 +1,12 @@
-﻿using Lean.Gui;
+﻿using System;
+using Lean.Gui;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VirtualConferences.CommonPlatform;
+using Random = UnityEngine.Random;
 
 namespace Source
 {
@@ -86,6 +89,8 @@ namespace Source
             var roomName = Random.Range(0, 99999).ToString("00000");
 
             PhotonNetwork.CreateRoom(roomName);
+
+            AnalyticsEventSender.CreateRoom(roomName);
         }
 
         public void JoinRandomRoom()
@@ -118,6 +123,8 @@ namespace Source
         {
             PhotonNetwork.IsMessageQueueRunning = false;
             SceneManager.LoadSceneAsync("LevelScene");
+
+            AnalyticsEventSender.JoinRoom(DateTime.Now, PhotonNetwork.CurrentRoom.Name);
         }
 
         private void SetupLocalPlayerCustomProperties()
